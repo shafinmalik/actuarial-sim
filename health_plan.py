@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import datetime
 
 # Step 1: Define the number of policies and the period over which they are active
 num_policies = 1000
@@ -8,6 +9,13 @@ end_date = pd.to_datetime('2020-12-31')
 
 # Set a fixed seed for reproducibility
 np.random.seed(42)
+
+# for a true random generator, use a true random generator as a seed. For now
+# use a conversion of current time into an integer.
+now = datetime.datetime.now()
+date_str = now.strftime("%Y%m%d%H%M%S")
+date_int = int(date_str)
+# np.random.seed(date_int)
 
 # Generate policy data
 policy_data = {
