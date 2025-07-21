@@ -5,11 +5,12 @@ from faker import Faker
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+# ---------------------- INITIAL SETUP ----------------------
 fake = Faker()
 np.random.seed(42)
 random.seed(42)
 
-# ---------------------- CONFIG ----------------------
+# ---------------------- CONFIGURATION ----------------------
 
 NUM_MEMBERS = 500
 HP_IDS = ['HP001', 'HP002', 'HP003']
@@ -20,11 +21,12 @@ COV_END = pd.to_datetime("2024-12-01")
 
 MIN_MONTHS = 1
 MAX_MONTHS = 36
-AGE_DISTRIBUTION = 'skewed_old'
-NOISE_LEVEL = 0.2
-RISK_NOISE_STD = 0.15
-PREMIUM_MULTIPLIER = 0.4
+AGE_DISTRIBUTION = 'skewed_old'  # Options: 'uniform', 'skewed_young', 'skewed_old'
+NOISE_LEVEL = 0.2                # Controls randomness of premium
+RISK_NOISE_STD = 0.15            # Noise for risk score
+PREMIUM_MULTIPLIER = 0.4         # Premium increases per unit risk
 
+# Prevalence of conditions
 condition_probs = {
     'CKD': [0.60, 0.05, 0.08, 0.10, 0.05, 0.02, 0.10],  # No CKD to ESRD
     'COPD': 0.15,
@@ -37,6 +39,7 @@ condition_probs = {
     'Hypertension': 0.40
 }
 
+# Remission probabilities per month
 remission_probs = {
     'Asthma': 0.01,
     'COPD': 0.005,
@@ -49,7 +52,25 @@ remission_probs = {
 ckd_progress_prob = 0.04
 ckd_regress_prob = 0.002
 
-# ---------------------- HELPERS ----------------------
+# ---------------------- CONFIG GUARD ----------------------
+
+total_months_available = (COV_END.to_period("M") - COV_START.to_period("M")).n + 1
+if MAX_MONTHS > total_months_available:
+    print(f"⚠️ MAX_MONTHS ({MAX_MONTHS}) exceeds available coverage window ({total_months_available}). Adjusting MAX_MONTHS = {total_months_available}")
+    MAX_MONTHS = total_months_available
+
+# ---------------------- UTILITY FUNCTIONS ----------------------
+
+def get_random_coverage_months(cov_start, cov_end, min_months, max_months):
+    total_months_available = (cov_end.to_period("M") - cov_start.to_period("M")).n + 1
+    adjusted_max = min(max_months, total_months_available)
+    if adjusted_max < min_months:
+        raise ValueError(f"❌ Not enough available months ({total_months_available}) to meet minimum coverage of {min_months} months.")
+    months_total = random.randint(min_months, adjusted_max)
+    offset_limit = total_months_available - months_total
+    offset = random.randint(0, offset_limit)
+    start_date = cov_start + relativedelta(months=offset)
+    return start_date, months_total
 
 def generate_birth_year(dist):
     if dist == 'uniform':
@@ -105,13 +126,8 @@ def generate_member_months(num_members):
         hp_id = random.choice(HP_IDS)
         plan_type = random.choice(PLAN_TYPES)
 
-        available_months = (COV_END.to_period("M") - COV_START.to_period("M")).n + 1
-        adjusted_max_months = min(MAX_MONTHS, available_months)
-        months_total = random.randint(MIN_MONTHS, adjusted_max_months)
-        offset_limit = available_months - months_total
-        offset = random.randint(0, offset_limit)
-        cov_start = COV_START + relativedelta(months=offset)
-        months = pd.date_range(cov_start, periods=months_total, freq='MS')
+        cov_start_actual, months_total = get_random_coverage_months(COV_START, COV_END, MIN_MONTHS, MAX_MONTHS)
+        months = pd.date_range(cov_start_actual, periods=months_total, freq='MS')
 
         ckd_stage = np.random.choice(range(7), p=condition_probs['CKD'])
         has_flags = {
@@ -125,20 +141,15 @@ def generate_member_months(num_members):
             'Cancer_Other': np.random.rand() < condition_probs['Cancer_Other']
         }
 
-        # --- Group months by calendar year and calculate 1 score/premium per year ---
         months_by_year = {}
         for m in months:
             y = m.year
-            if y not in months_by_year:
-                months_by_year[y] = []
-            months_by_year[y].append(m)
+            months_by_year.setdefault(y, []).append(m)
 
         for year, month_list in months_by_year.items():
             first_month = month_list[0]
             age = relativedelta(first_month, birth_date).years
             esrd_flag = 1 if ckd_stage == 6 else 0
-
-            # Snapshot the flags as of first month in year
             flags_snapshot = has_flags.copy()
             risk_score = calculate_risk_score(age, ckd_stage, esrd_flag, flags_snapshot)
             base = {'HMO': 600, 'PPO': 750, 'SNP': 850}[plan_type]
@@ -169,7 +180,7 @@ def generate_member_months(num_members):
 
                 all_records.append(row)
 
-                # Progress CKD stage and flags
+                # Update CKD and check for condition remission
                 ckd_stage = update_ckd_stage(ckd_stage)
                 for cond in remission_probs:
                     if has_flags[cond] and np.random.rand() < remission_probs[cond]:
@@ -179,6 +190,7 @@ def generate_member_months(num_members):
 
 # ---------------------- EXECUTION ----------------------
 
-df_mm = generate_member_months(NUM_MEMBERS)
-df_mm.to_csv("member_months.csv", index=False)
-print("Member-month table saved to member_months.csv")
+if __name__ == "__main__":
+    df_mm = generate_member_months(NUM_MEMBERS)
+    df_mm.to_csv("member_months.csv", index=False)
+    print("✅ Member-month table saved to member_months.csv")
