@@ -1,0 +1,379 @@
+bill_type_code,facility_type,classification,frequency,category_of_service
+111,Hospital,Inpatient (Medicare Part A),Original (Admit thru Discharge),Inpatient
+112,Hospital,Inpatient (Medicare Part A),Interim - First Claim,Inpatient
+113,Hospital,Inpatient (Medicare Part A),Interim - Continuing Claim,Inpatient
+114,Hospital,Inpatient (Medicare Part A),Interim - Last Claim,Inpatient
+117,Hospital,Inpatient (Medicare Part A),Replacement of Prior Claim,Inpatient
+118,Hospital,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Inpatient
+121,Hospital,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+122,Hospital,Inpatient (Medicare Part B only),Interim - First Claim,Other
+123,Hospital,Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+124,Hospital,Inpatient (Medicare Part B only),Interim - Last Claim,Other
+127,Hospital,Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+128,Hospital,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+131,Hospital,Outpatient,Original (Admit thru Discharge),Outpatient
+132,Hospital,Outpatient,Interim - First Claim,Outpatient
+133,Hospital,Outpatient,Interim - Continuing Claim,Outpatient
+134,Hospital,Outpatient,Interim - Last Claim,Outpatient
+137,Hospital,Outpatient,Replacement of Prior Claim,Outpatient
+138,Hospital,Outpatient,Void/Cancel Prior Claim,Outpatient
+141,Hospital,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),ER
+142,Hospital,"Other (e.g., referenced diagnostic)",Interim - First Claim,ER
+143,Hospital,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,ER
+144,Hospital,"Other (e.g., referenced diagnostic)",Interim - Last Claim,ER
+147,Hospital,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,ER
+148,Hospital,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,ER
+151,Hospital,Intermediate/Mental Health,Original (Admit thru Discharge),Other
+152,Hospital,Intermediate/Mental Health,Interim - First Claim,Other
+153,Hospital,Intermediate/Mental Health,Interim - Continuing Claim,Other
+154,Hospital,Intermediate/Mental Health,Interim - Last Claim,Other
+157,Hospital,Intermediate/Mental Health,Replacement of Prior Claim,Other
+158,Hospital,Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+171,Hospital,Clinic or Special Services,Original (Admit thru Discharge),Other
+172,Hospital,Clinic or Special Services,Interim - First Claim,Other
+173,Hospital,Clinic or Special Services,Interim - Continuing Claim,Other
+174,Hospital,Clinic or Special Services,Interim - Last Claim,Other
+177,Hospital,Clinic or Special Services,Replacement of Prior Claim,Other
+178,Hospital,Clinic or Special Services,Void/Cancel Prior Claim,Other
+181,Hospital,Swing Bed,Original (Admit thru Discharge),Other
+182,Hospital,Swing Bed,Interim - First Claim,Other
+183,Hospital,Swing Bed,Interim - Continuing Claim,Other
+184,Hospital,Swing Bed,Interim - Last Claim,Other
+187,Hospital,Swing Bed,Replacement of Prior Claim,Other
+188,Hospital,Swing Bed,Void/Cancel Prior Claim,Other
+211,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Original (Admit thru Discharge),SNF
+212,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Interim - First Claim,SNF
+213,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Interim - Continuing Claim,SNF
+214,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Interim - Last Claim,SNF
+217,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Replacement of Prior Claim,SNF
+218,Skilled Nursing Facility (SNF),Inpatient (Medicare Part A),Void/Cancel Prior Claim,SNF
+221,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Original (Admit thru Discharge),SNF
+222,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Interim - First Claim,SNF
+223,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Interim - Continuing Claim,SNF
+224,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Interim - Last Claim,SNF
+227,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Replacement of Prior Claim,SNF
+228,Skilled Nursing Facility (SNF),Inpatient (Medicare Part B only),Void/Cancel Prior Claim,SNF
+231,Skilled Nursing Facility (SNF),Outpatient,Original (Admit thru Discharge),SNF
+232,Skilled Nursing Facility (SNF),Outpatient,Interim - First Claim,SNF
+233,Skilled Nursing Facility (SNF),Outpatient,Interim - Continuing Claim,SNF
+234,Skilled Nursing Facility (SNF),Outpatient,Interim - Last Claim,SNF
+237,Skilled Nursing Facility (SNF),Outpatient,Replacement of Prior Claim,SNF
+238,Skilled Nursing Facility (SNF),Outpatient,Void/Cancel Prior Claim,SNF
+241,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),SNF
+242,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Interim - First Claim,SNF
+243,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,SNF
+244,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Interim - Last Claim,SNF
+247,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,SNF
+248,Skilled Nursing Facility (SNF),"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,SNF
+251,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Original (Admit thru Discharge),SNF
+252,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Interim - First Claim,SNF
+253,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Interim - Continuing Claim,SNF
+254,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Interim - Last Claim,SNF
+257,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Replacement of Prior Claim,SNF
+258,Skilled Nursing Facility (SNF),Intermediate/Mental Health,Void/Cancel Prior Claim,SNF
+271,Skilled Nursing Facility (SNF),Clinic or Special Services,Original (Admit thru Discharge),SNF
+272,Skilled Nursing Facility (SNF),Clinic or Special Services,Interim - First Claim,SNF
+273,Skilled Nursing Facility (SNF),Clinic or Special Services,Interim - Continuing Claim,SNF
+274,Skilled Nursing Facility (SNF),Clinic or Special Services,Interim - Last Claim,SNF
+277,Skilled Nursing Facility (SNF),Clinic or Special Services,Replacement of Prior Claim,SNF
+278,Skilled Nursing Facility (SNF),Clinic or Special Services,Void/Cancel Prior Claim,SNF
+281,Skilled Nursing Facility (SNF),Swing Bed,Original (Admit thru Discharge),SNF
+282,Skilled Nursing Facility (SNF),Swing Bed,Interim - First Claim,SNF
+283,Skilled Nursing Facility (SNF),Swing Bed,Interim - Continuing Claim,SNF
+284,Skilled Nursing Facility (SNF),Swing Bed,Interim - Last Claim,SNF
+287,Skilled Nursing Facility (SNF),Swing Bed,Replacement of Prior Claim,SNF
+288,Skilled Nursing Facility (SNF),Swing Bed,Void/Cancel Prior Claim,SNF
+311,Home Health,Inpatient (Medicare Part A),Original (Admit thru Discharge),Home Health
+312,Home Health,Inpatient (Medicare Part A),Interim - First Claim,Home Health
+313,Home Health,Inpatient (Medicare Part A),Interim - Continuing Claim,Home Health
+314,Home Health,Inpatient (Medicare Part A),Interim - Last Claim,Home Health
+317,Home Health,Inpatient (Medicare Part A),Replacement of Prior Claim,Home Health
+318,Home Health,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Home Health
+321,Home Health,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Home Health
+322,Home Health,Inpatient (Medicare Part B only),Interim - First Claim,Home Health
+323,Home Health,Inpatient (Medicare Part B only),Interim - Continuing Claim,Home Health
+324,Home Health,Inpatient (Medicare Part B only),Interim - Last Claim,Home Health
+327,Home Health,Inpatient (Medicare Part B only),Replacement of Prior Claim,Home Health
+328,Home Health,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Home Health
+331,Home Health,Outpatient,Original (Admit thru Discharge),Home Health
+332,Home Health,Outpatient,Interim - First Claim,Home Health
+333,Home Health,Outpatient,Interim - Continuing Claim,Home Health
+334,Home Health,Outpatient,Interim - Last Claim,Home Health
+337,Home Health,Outpatient,Replacement of Prior Claim,Home Health
+338,Home Health,Outpatient,Void/Cancel Prior Claim,Home Health
+341,Home Health,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Home Health
+342,Home Health,"Other (e.g., referenced diagnostic)",Interim - First Claim,Home Health
+343,Home Health,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Home Health
+344,Home Health,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Home Health
+347,Home Health,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Home Health
+348,Home Health,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Home Health
+351,Home Health,Intermediate/Mental Health,Original (Admit thru Discharge),Home Health
+352,Home Health,Intermediate/Mental Health,Interim - First Claim,Home Health
+353,Home Health,Intermediate/Mental Health,Interim - Continuing Claim,Home Health
+354,Home Health,Intermediate/Mental Health,Interim - Last Claim,Home Health
+357,Home Health,Intermediate/Mental Health,Replacement of Prior Claim,Home Health
+358,Home Health,Intermediate/Mental Health,Void/Cancel Prior Claim,Home Health
+371,Home Health,Clinic or Special Services,Original (Admit thru Discharge),Home Health
+372,Home Health,Clinic or Special Services,Interim - First Claim,Home Health
+373,Home Health,Clinic or Special Services,Interim - Continuing Claim,Home Health
+374,Home Health,Clinic or Special Services,Interim - Last Claim,Home Health
+377,Home Health,Clinic or Special Services,Replacement of Prior Claim,Home Health
+378,Home Health,Clinic or Special Services,Void/Cancel Prior Claim,Home Health
+381,Home Health,Swing Bed,Original (Admit thru Discharge),Home Health
+382,Home Health,Swing Bed,Interim - First Claim,Home Health
+383,Home Health,Swing Bed,Interim - Continuing Claim,Home Health
+384,Home Health,Swing Bed,Interim - Last Claim,Home Health
+387,Home Health,Swing Bed,Replacement of Prior Claim,Home Health
+388,Home Health,Swing Bed,Void/Cancel Prior Claim,Home Health
+411,Religious Non-Medical Facility,Inpatient (Medicare Part A),Original (Admit thru Discharge),Other
+412,Religious Non-Medical Facility,Inpatient (Medicare Part A),Interim - First Claim,Other
+413,Religious Non-Medical Facility,Inpatient (Medicare Part A),Interim - Continuing Claim,Other
+414,Religious Non-Medical Facility,Inpatient (Medicare Part A),Interim - Last Claim,Other
+417,Religious Non-Medical Facility,Inpatient (Medicare Part A),Replacement of Prior Claim,Other
+418,Religious Non-Medical Facility,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Other
+421,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+422,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Interim - First Claim,Other
+423,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+424,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Interim - Last Claim,Other
+427,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+428,Religious Non-Medical Facility,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+431,Religious Non-Medical Facility,Outpatient,Original (Admit thru Discharge),Other
+432,Religious Non-Medical Facility,Outpatient,Interim - First Claim,Other
+433,Religious Non-Medical Facility,Outpatient,Interim - Continuing Claim,Other
+434,Religious Non-Medical Facility,Outpatient,Interim - Last Claim,Other
+437,Religious Non-Medical Facility,Outpatient,Replacement of Prior Claim,Other
+438,Religious Non-Medical Facility,Outpatient,Void/Cancel Prior Claim,Other
+441,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Other
+442,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Interim - First Claim,Other
+443,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Other
+444,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Other
+447,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Other
+448,Religious Non-Medical Facility,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Other
+451,Religious Non-Medical Facility,Intermediate/Mental Health,Original (Admit thru Discharge),Other
+452,Religious Non-Medical Facility,Intermediate/Mental Health,Interim - First Claim,Other
+453,Religious Non-Medical Facility,Intermediate/Mental Health,Interim - Continuing Claim,Other
+454,Religious Non-Medical Facility,Intermediate/Mental Health,Interim - Last Claim,Other
+457,Religious Non-Medical Facility,Intermediate/Mental Health,Replacement of Prior Claim,Other
+458,Religious Non-Medical Facility,Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+471,Religious Non-Medical Facility,Clinic or Special Services,Original (Admit thru Discharge),Other
+472,Religious Non-Medical Facility,Clinic or Special Services,Interim - First Claim,Other
+473,Religious Non-Medical Facility,Clinic or Special Services,Interim - Continuing Claim,Other
+474,Religious Non-Medical Facility,Clinic or Special Services,Interim - Last Claim,Other
+477,Religious Non-Medical Facility,Clinic or Special Services,Replacement of Prior Claim,Other
+478,Religious Non-Medical Facility,Clinic or Special Services,Void/Cancel Prior Claim,Other
+481,Religious Non-Medical Facility,Swing Bed,Original (Admit thru Discharge),Other
+482,Religious Non-Medical Facility,Swing Bed,Interim - First Claim,Other
+483,Religious Non-Medical Facility,Swing Bed,Interim - Continuing Claim,Other
+484,Religious Non-Medical Facility,Swing Bed,Interim - Last Claim,Other
+487,Religious Non-Medical Facility,Swing Bed,Replacement of Prior Claim,Other
+488,Religious Non-Medical Facility,Swing Bed,Void/Cancel Prior Claim,Other
+511,Clinic,Inpatient (Medicare Part A),Original (Admit thru Discharge),Other
+512,Clinic,Inpatient (Medicare Part A),Interim - First Claim,Other
+513,Clinic,Inpatient (Medicare Part A),Interim - Continuing Claim,Other
+514,Clinic,Inpatient (Medicare Part A),Interim - Last Claim,Other
+517,Clinic,Inpatient (Medicare Part A),Replacement of Prior Claim,Other
+518,Clinic,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Other
+521,Clinic,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+522,Clinic,Inpatient (Medicare Part B only),Interim - First Claim,Other
+523,Clinic,Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+524,Clinic,Inpatient (Medicare Part B only),Interim - Last Claim,Other
+527,Clinic,Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+528,Clinic,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+531,Clinic,Outpatient,Original (Admit thru Discharge),Professional
+532,Clinic,Outpatient,Interim - First Claim,Professional
+533,Clinic,Outpatient,Interim - Continuing Claim,Professional
+534,Clinic,Outpatient,Interim - Last Claim,Professional
+537,Clinic,Outpatient,Replacement of Prior Claim,Professional
+538,Clinic,Outpatient,Void/Cancel Prior Claim,Professional
+541,Clinic,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Other
+542,Clinic,"Other (e.g., referenced diagnostic)",Interim - First Claim,Other
+543,Clinic,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Other
+544,Clinic,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Other
+547,Clinic,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Other
+548,Clinic,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Other
+551,Clinic,Intermediate/Mental Health,Original (Admit thru Discharge),Other
+552,Clinic,Intermediate/Mental Health,Interim - First Claim,Other
+553,Clinic,Intermediate/Mental Health,Interim - Continuing Claim,Other
+554,Clinic,Intermediate/Mental Health,Interim - Last Claim,Other
+557,Clinic,Intermediate/Mental Health,Replacement of Prior Claim,Other
+558,Clinic,Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+571,Clinic,Clinic or Special Services,Original (Admit thru Discharge),Other
+572,Clinic,Clinic or Special Services,Interim - First Claim,Other
+573,Clinic,Clinic or Special Services,Interim - Continuing Claim,Other
+574,Clinic,Clinic or Special Services,Interim - Last Claim,Other
+577,Clinic,Clinic or Special Services,Replacement of Prior Claim,Other
+578,Clinic,Clinic or Special Services,Void/Cancel Prior Claim,Other
+581,Clinic,Swing Bed,Original (Admit thru Discharge),Other
+582,Clinic,Swing Bed,Interim - First Claim,Other
+583,Clinic,Swing Bed,Interim - Continuing Claim,Other
+584,Clinic,Swing Bed,Interim - Last Claim,Other
+587,Clinic,Swing Bed,Replacement of Prior Claim,Other
+588,Clinic,Swing Bed,Void/Cancel Prior Claim,Other
+611,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Original (Admit thru Discharge),Other
+612,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Interim - First Claim,Other
+613,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Interim - Continuing Claim,Other
+614,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Interim - Last Claim,Other
+617,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Replacement of Prior Claim,Other
+618,Intermediate Care Facility (ICF),Inpatient (Medicare Part A),Void/Cancel Prior Claim,Other
+621,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+622,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Interim - First Claim,Other
+623,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+624,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Interim - Last Claim,Other
+627,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+628,Intermediate Care Facility (ICF),Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+631,Intermediate Care Facility (ICF),Outpatient,Original (Admit thru Discharge),Other
+632,Intermediate Care Facility (ICF),Outpatient,Interim - First Claim,Other
+633,Intermediate Care Facility (ICF),Outpatient,Interim - Continuing Claim,Other
+634,Intermediate Care Facility (ICF),Outpatient,Interim - Last Claim,Other
+637,Intermediate Care Facility (ICF),Outpatient,Replacement of Prior Claim,Other
+638,Intermediate Care Facility (ICF),Outpatient,Void/Cancel Prior Claim,Other
+641,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Other
+642,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Interim - First Claim,Other
+643,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Other
+644,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Interim - Last Claim,Other
+647,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Other
+648,Intermediate Care Facility (ICF),"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Other
+651,Intermediate Care Facility (ICF),Intermediate/Mental Health,Original (Admit thru Discharge),Other
+652,Intermediate Care Facility (ICF),Intermediate/Mental Health,Interim - First Claim,Other
+653,Intermediate Care Facility (ICF),Intermediate/Mental Health,Interim - Continuing Claim,Other
+654,Intermediate Care Facility (ICF),Intermediate/Mental Health,Interim - Last Claim,Other
+657,Intermediate Care Facility (ICF),Intermediate/Mental Health,Replacement of Prior Claim,Other
+658,Intermediate Care Facility (ICF),Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+671,Intermediate Care Facility (ICF),Clinic or Special Services,Original (Admit thru Discharge),Other
+672,Intermediate Care Facility (ICF),Clinic or Special Services,Interim - First Claim,Other
+673,Intermediate Care Facility (ICF),Clinic or Special Services,Interim - Continuing Claim,Other
+674,Intermediate Care Facility (ICF),Clinic or Special Services,Interim - Last Claim,Other
+677,Intermediate Care Facility (ICF),Clinic or Special Services,Replacement of Prior Claim,Other
+678,Intermediate Care Facility (ICF),Clinic or Special Services,Void/Cancel Prior Claim,Other
+681,Intermediate Care Facility (ICF),Swing Bed,Original (Admit thru Discharge),Other
+682,Intermediate Care Facility (ICF),Swing Bed,Interim - First Claim,Other
+683,Intermediate Care Facility (ICF),Swing Bed,Interim - Continuing Claim,Other
+684,Intermediate Care Facility (ICF),Swing Bed,Interim - Last Claim,Other
+687,Intermediate Care Facility (ICF),Swing Bed,Replacement of Prior Claim,Other
+688,Intermediate Care Facility (ICF),Swing Bed,Void/Cancel Prior Claim,Other
+711,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Original (Admit thru Discharge),Clinic
+712,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Interim - First Claim,Clinic
+713,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Interim - Continuing Claim,Clinic
+714,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Interim - Last Claim,Clinic
+717,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Replacement of Prior Claim,Clinic
+718,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Clinic
+721,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Clinic
+722,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Interim - First Claim,Clinic
+723,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Interim - Continuing Claim,Clinic
+724,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Interim - Last Claim,Clinic
+727,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Replacement of Prior Claim,Clinic
+728,Clinic – Federally Qualified Health Center,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Clinic
+731,Clinic – Federally Qualified Health Center,Outpatient,Original (Admit thru Discharge),Clinic
+732,Clinic – Federally Qualified Health Center,Outpatient,Interim - First Claim,Clinic
+733,Clinic – Federally Qualified Health Center,Outpatient,Interim - Continuing Claim,Clinic
+734,Clinic – Federally Qualified Health Center,Outpatient,Interim - Last Claim,Clinic
+737,Clinic – Federally Qualified Health Center,Outpatient,Replacement of Prior Claim,Clinic
+738,Clinic – Federally Qualified Health Center,Outpatient,Void/Cancel Prior Claim,Clinic
+741,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Clinic
+742,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Interim - First Claim,Clinic
+743,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Clinic
+744,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Clinic
+747,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Clinic
+748,Clinic – Federally Qualified Health Center,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Clinic
+751,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Original (Admit thru Discharge),Clinic
+752,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Interim - First Claim,Clinic
+753,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Interim - Continuing Claim,Clinic
+754,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Interim - Last Claim,Clinic
+757,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Replacement of Prior Claim,Clinic
+758,Clinic – Federally Qualified Health Center,Intermediate/Mental Health,Void/Cancel Prior Claim,Clinic
+771,Clinic – Federally Qualified Health Center,Clinic or Special Services,Original (Admit thru Discharge),Clinic
+772,Clinic – Federally Qualified Health Center,Clinic or Special Services,Interim - First Claim,Clinic
+773,Clinic – Federally Qualified Health Center,Clinic or Special Services,Interim - Continuing Claim,Clinic
+774,Clinic – Federally Qualified Health Center,Clinic or Special Services,Interim - Last Claim,Clinic
+777,Clinic – Federally Qualified Health Center,Clinic or Special Services,Replacement of Prior Claim,Clinic
+778,Clinic – Federally Qualified Health Center,Clinic or Special Services,Void/Cancel Prior Claim,Clinic
+781,Clinic – Federally Qualified Health Center,Swing Bed,Original (Admit thru Discharge),Clinic
+782,Clinic – Federally Qualified Health Center,Swing Bed,Interim - First Claim,Clinic
+783,Clinic – Federally Qualified Health Center,Swing Bed,Interim - Continuing Claim,Clinic
+784,Clinic – Federally Qualified Health Center,Swing Bed,Interim - Last Claim,Clinic
+787,Clinic – Federally Qualified Health Center,Swing Bed,Replacement of Prior Claim,Clinic
+788,Clinic – Federally Qualified Health Center,Swing Bed,Void/Cancel Prior Claim,Clinic
+811,Special Facility,Inpatient (Medicare Part A),Original (Admit thru Discharge),Other
+812,Special Facility,Inpatient (Medicare Part A),Interim - First Claim,Other
+813,Special Facility,Inpatient (Medicare Part A),Interim - Continuing Claim,Other
+814,Special Facility,Inpatient (Medicare Part A),Interim - Last Claim,Other
+817,Special Facility,Inpatient (Medicare Part A),Replacement of Prior Claim,Other
+818,Special Facility,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Other
+821,Special Facility,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+822,Special Facility,Inpatient (Medicare Part B only),Interim - First Claim,Other
+823,Special Facility,Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+824,Special Facility,Inpatient (Medicare Part B only),Interim - Last Claim,Other
+827,Special Facility,Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+828,Special Facility,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+831,Special Facility,Outpatient,Original (Admit thru Discharge),Other
+832,Special Facility,Outpatient,Interim - First Claim,Other
+833,Special Facility,Outpatient,Interim - Continuing Claim,Other
+834,Special Facility,Outpatient,Interim - Last Claim,Other
+837,Special Facility,Outpatient,Replacement of Prior Claim,Other
+838,Special Facility,Outpatient,Void/Cancel Prior Claim,Other
+841,Special Facility,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Other
+842,Special Facility,"Other (e.g., referenced diagnostic)",Interim - First Claim,Other
+843,Special Facility,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Other
+844,Special Facility,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Other
+847,Special Facility,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Other
+848,Special Facility,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Other
+851,Special Facility,Intermediate/Mental Health,Original (Admit thru Discharge),Other
+852,Special Facility,Intermediate/Mental Health,Interim - First Claim,Other
+853,Special Facility,Intermediate/Mental Health,Interim - Continuing Claim,Other
+854,Special Facility,Intermediate/Mental Health,Interim - Last Claim,Other
+857,Special Facility,Intermediate/Mental Health,Replacement of Prior Claim,Other
+858,Special Facility,Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+871,Special Facility,Clinic or Special Services,Original (Admit thru Discharge),Other
+872,Special Facility,Clinic or Special Services,Interim - First Claim,Other
+873,Special Facility,Clinic or Special Services,Interim - Continuing Claim,Other
+874,Special Facility,Clinic or Special Services,Interim - Last Claim,Other
+877,Special Facility,Clinic or Special Services,Replacement of Prior Claim,Other
+878,Special Facility,Clinic or Special Services,Void/Cancel Prior Claim,Other
+881,Special Facility,Swing Bed,Original (Admit thru Discharge),Other
+882,Special Facility,Swing Bed,Interim - First Claim,Other
+883,Special Facility,Swing Bed,Interim - Continuing Claim,Other
+884,Special Facility,Swing Bed,Interim - Last Claim,Other
+887,Special Facility,Swing Bed,Replacement of Prior Claim,Other
+888,Special Facility,Swing Bed,Void/Cancel Prior Claim,Other
+911,Other,Inpatient (Medicare Part A),Original (Admit thru Discharge),Other
+912,Other,Inpatient (Medicare Part A),Interim - First Claim,Other
+913,Other,Inpatient (Medicare Part A),Interim - Continuing Claim,Other
+914,Other,Inpatient (Medicare Part A),Interim - Last Claim,Other
+917,Other,Inpatient (Medicare Part A),Replacement of Prior Claim,Other
+918,Other,Inpatient (Medicare Part A),Void/Cancel Prior Claim,Other
+921,Other,Inpatient (Medicare Part B only),Original (Admit thru Discharge),Other
+922,Other,Inpatient (Medicare Part B only),Interim - First Claim,Other
+923,Other,Inpatient (Medicare Part B only),Interim - Continuing Claim,Other
+924,Other,Inpatient (Medicare Part B only),Interim - Last Claim,Other
+927,Other,Inpatient (Medicare Part B only),Replacement of Prior Claim,Other
+928,Other,Inpatient (Medicare Part B only),Void/Cancel Prior Claim,Other
+931,Other,Outpatient,Original (Admit thru Discharge),Other
+932,Other,Outpatient,Interim - First Claim,Other
+933,Other,Outpatient,Interim - Continuing Claim,Other
+934,Other,Outpatient,Interim - Last Claim,Other
+937,Other,Outpatient,Replacement of Prior Claim,Other
+938,Other,Outpatient,Void/Cancel Prior Claim,Other
+941,Other,"Other (e.g., referenced diagnostic)",Original (Admit thru Discharge),Other
+942,Other,"Other (e.g., referenced diagnostic)",Interim - First Claim,Other
+943,Other,"Other (e.g., referenced diagnostic)",Interim - Continuing Claim,Other
+944,Other,"Other (e.g., referenced diagnostic)",Interim - Last Claim,Other
+947,Other,"Other (e.g., referenced diagnostic)",Replacement of Prior Claim,Other
+948,Other,"Other (e.g., referenced diagnostic)",Void/Cancel Prior Claim,Other
+951,Other,Intermediate/Mental Health,Original (Admit thru Discharge),Other
+952,Other,Intermediate/Mental Health,Interim - First Claim,Other
+953,Other,Intermediate/Mental Health,Interim - Continuing Claim,Other
+954,Other,Intermediate/Mental Health,Interim - Last Claim,Other
+957,Other,Intermediate/Mental Health,Replacement of Prior Claim,Other
+958,Other,Intermediate/Mental Health,Void/Cancel Prior Claim,Other
+971,Other,Clinic or Special Services,Original (Admit thru Discharge),Other
+972,Other,Clinic or Special Services,Interim - First Claim,Other
+973,Other,Clinic or Special Services,Interim - Continuing Claim,Other
+974,Other,Clinic or Special Services,Interim - Last Claim,Other
+977,Other,Clinic or Special Services,Replacement of Prior Claim,Other
+978,Other,Clinic or Special Services,Void/Cancel Prior Claim,Other
+981,Other,Swing Bed,Original (Admit thru Discharge),Other
+982,Other,Swing Bed,Interim - First Claim,Other
+983,Other,Swing Bed,Interim - Continuing Claim,Other
+984,Other,Swing Bed,Interim - Last Claim,Other
+987,Other,Swing Bed,Replacement of Prior Claim,Other
+988,Other,Swing Bed,Void/Cancel Prior Claim,Other

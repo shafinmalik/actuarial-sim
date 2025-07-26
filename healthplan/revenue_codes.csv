@@ -1,0 +1,386 @@
+revenue_code,description,category_group
+0240,"All inclusive ancillary, general",Ancillary/Equipment
+0260,Intravenous (IV) therapy,Ancillary/Equipment
+0261,"Intravenous (IV) therapy, infusion pump",Ancillary/Equipment
+0262,"Intravenous (IV) therapy, pharmacy services",Ancillary/Equipment
+0263,"Intravenous (IV) therapeutic drug, supply and delivery",Ancillary/Equipment
+0264,"Intravenous (IV) therapy, supplies",Ancillary/Equipment
+0269,"Intravenous (IV) therapy, ",Ancillary/Equipment
+0274,"Medical/surgical supplies and devices,prosthetic and orthotic ",Ancillary/Equipment
+0280,Oncology,Ancillary/Equipment
+0290,"Durable medical equipment, general",Ancillary/Equipment
+0291,"Durable medical equipment, rental",Ancillary/Equipment
+0292,"Durable medical equipment, purchase of new",Ancillary/Equipment
+0294,"Durable medical equipment, supplies and drugs",Ancillary/Equipment
+0299,"Durable medical equipment, ",Ancillary/Equipment
+0300,"Laboratory, general classification",Diagnostic
+0301,"Laboratory, chemistry",Diagnostic
+0302,"Laboratory, immunology",Diagnostic
+0303,"Laboratory, renal patient ",Diagnostic
+0304,"Laboratory, dialysis",Diagnostic
+0305,"Laboratory, hematology",Diagnostic
+0306,"Laboratory, bacteriology and microbiology",Diagnostic
+0307,"Laboratory, urology",Diagnostic
+0308,Reserved laboratory,Diagnostic
+0309,"Laboratory, ",Diagnostic
+0310,"Laboratory, pathology general classification",Diagnostic
+0311,Laboratory pathology cytology,Diagnostic
+0312,Laboratory pathology histology,Diagnostic
+0313,Reserved laboratory pathology,Diagnostic
+0314,"Laboratory, pathology biopsy",Diagnostic
+0315,"Reserved laboratory, pathology",Diagnostic
+0316,"Reserved laboratory, pathology",Diagnostic
+0317,"Reserved laboratory, pathology",Diagnostic
+0318,"Reserved laboratory, pathology",Diagnostic
+0319,"Laboratory, pathology ",Diagnostic
+0320,"Radiology, diagnostic general classification",Diagnostic
+0321,"Radiology, diagnostic angiocardiology",Diagnostic
+0322,"Radiology, diagnostic arthrography",Diagnostic
+0323,"Radiology, diagnostic arteriography",Diagnostic
+0324,"Radiology, diagnostic chest X-ray",Diagnostic
+0325,"Reserved radiology, diagnostic",Diagnostic
+0326,"Reserved radiology, diagnostic",Diagnostic
+0327,"Reserved radiology, diagnostic",Diagnostic
+0328,"Reserved radiology, diagnostic",Diagnostic
+0329,"Radiology, diagnostic ",Diagnostic
+0330,"Radiology, therapeutic chemapy general classification",Diagnostic
+0331,"Radiology, therapeutic chemapy, chemapy administration – injected",Diagnostic
+0332,"Radiology, therapeutic chemapy, chemapy and administration – oral",Diagnostic
+0333,"Radiology, therapeutic chemapy, radiation therapy",Diagnostic
+0334,"Reserved radiology, therapeutic chemapy",Diagnostic
+0335,"Radiology, therapeutic chemapy, administration (intravenous (IV))",Diagnostic
+0336,"Reserved radiology, therapeutic chemapy",Diagnostic
+0337,"Reserved radiology, therapeutic chemapy",Diagnostic
+0338,"Reserved radiology, therapeutic chemapy",Diagnostic
+0339,"Radiology, therapeutic chemapy ",Diagnostic
+0340,"Nuclear medicine, general classification",Diagnostic
+0341,"Nuclear medicine, diagnostic",Diagnostic
+0342,"Nuclear medicine, therapeutic",Diagnostic
+0343,"Nuclear medicine, diagnostic radiopharmaceuticals",Diagnostic
+0344,"Nuclear medicine, therapeutic radiopharmaceuticals",Diagnostic
+0349,"Nuclear medicine, ",Diagnostic
+0350,"Computerized axial tomography (CAT) scan, general",Diagnostic
+0351,"Computerized axial tomography (CAT) scan, head scan",Diagnostic
+0352,"Computerized axial tomography (CAT) scan, body scan",Diagnostic
+0353,Reserved computerized axial tomography scan (CAT),Diagnostic
+0354,Reserved computerized axial tomography scan (CAT),Diagnostic
+0355,Reserved computerized axial tomography scan (CAT) ,Diagnostic
+0356,Reserved computerized axial tomography scan (CAT),Diagnostic
+0357,Reserved computerized axial tomography scan (CAT),Diagnostic
+0358,Reserved computerized axial tomography scan (CAT) ,Diagnostic
+0359,Computerized axial tomography scan (CAT),Diagnostic
+0360,"Operating room services, general",Diagnostic
+0361,"Operating room services, minor surgery",Diagnostic
+0362,"Operating services, organ transplant  than kidney",Diagnostic
+0363,Reserved operating room services,Diagnostic
+0364,Reserved operating room services,Diagnostic
+0365,Reserved operating room services,Diagnostic
+0366,Reserved operating room services,Diagnostic
+0367,"Operating room services, kidney transplant",Diagnostic
+0368,Reserved operating room services,Diagnostic
+0369,Operating room services,Diagnostic
+0380,"Blood and blood products, general",Diagnostic
+0381,"Blood and blood products, packed red cells",Diagnostic
+0382,"Blood and blood products, whole blood products",Diagnostic
+0383,"Blood and blood products, plasma",Diagnostic
+0384,"Blood and blood products, platelets",Diagnostic
+0385,"Blood and blood products, leukocytes",Diagnostic
+0386,"Blood and blood products,  components",Diagnostic
+0387,"Blood and blood products,  derivatives (cryoprecipitate)",Diagnostic
+0388,"Blood and blood products, reserved components",Diagnostic
+0389,"Blood and blood products, ",Diagnostic
+0390,"Blood administration process, storage general",Diagnostic
+0391,"Blood administration process, storage administration",Diagnostic
+0399,"Blood,  storage",Diagnostic
+0400,"Imaging services, general",Emergency/Imaging
+0401,"Imaging services, diagnostic mammography",Emergency/Imaging
+0402,"Imaging services, ultrasound",Emergency/Imaging
+0403,"Imaging services, screening mammography",Emergency/Imaging
+0404,"Imaging services, positron emission tomography",Emergency/Imaging
+0405,Reserved imaging services,Emergency/Imaging
+0406,Reserved imaging services,Emergency/Imaging
+0407,Reserved imaging services,Emergency/Imaging
+0408,Reserved imaging services,Emergency/Imaging
+0409,"Imaging services, ",Emergency/Imaging
+0410,"Respiratory services, general",Emergency/Imaging
+0411,Reserved respiratory services,Emergency/Imaging
+0412,"Respiratory services, inhalation",Emergency/Imaging
+0413,"Respiratory services, hyperbaric oxygen therapy",Emergency/Imaging
+0414,Reserved respiratory services,Emergency/Imaging
+0415,Reserved respiratory services,Emergency/Imaging
+0416,Reserved respiratory services,Emergency/Imaging
+0417,Reserved respiratory services,Emergency/Imaging
+0418,Reserved respiratory services,Emergency/Imaging
+0419,"Respiratory services, ",Emergency/Imaging
+0420,"Physical therapy, general",Emergency/Imaging
+0421,"Physical therapy, visit",Emergency/Imaging
+0422,"Physical therapy, hourly",Emergency/Imaging
+0423,"Physical therapy, group",Emergency/Imaging
+0424,"Physical therapy, evaluation or reevaluation",Emergency/Imaging
+0425,Reserved physical therapy,Emergency/Imaging
+0426,Reserved physical therapy,Emergency/Imaging
+0427,Reserved physical therapy,Emergency/Imaging
+0428,Reserved physical therapy,Emergency/Imaging
+0429,"Physical therapy, ",Emergency/Imaging
+0430,"Occupational therapy, general",Emergency/Imaging
+0431,"Occupational therapy, visit",Emergency/Imaging
+0432,"Occupational therapy, hourly",Emergency/Imaging
+0433,"Occupational therapy, group",Emergency/Imaging
+0434,"Occupational therapy, evaluation or reevaluation",Emergency/Imaging
+0435,Reserved occupational therapy,Emergency/Imaging
+0436,Reserved occupational therapy,Emergency/Imaging
+0437,Reserved occupational therapy,Emergency/Imaging
+0438,Reserved occupational therapy,Emergency/Imaging
+0439,"Occupational therapy, ",Emergency/Imaging
+0440,"Speech therapy, general",Emergency/Imaging
+0441,"Speech therapy, visit",Emergency/Imaging
+0442,"Speech therapy, hourly",Emergency/Imaging
+0443,"Speech therapy, group",Emergency/Imaging
+0444,"Speech therapy, evaluation or reevaluation",Emergency/Imaging
+0445,Reserved speech therapy,Emergency/Imaging
+0446,Reserved speech therapy,Emergency/Imaging
+0447,Reserved speech therapy,Emergency/Imaging
+0448,Reserved speech therapy,Emergency/Imaging
+0449,"Speech therapy, ",Emergency/Imaging
+0450,"Emergency room, general",Emergency/Imaging
+0451,"Emergency room, EMTALA emergency and medical",Emergency/Imaging
+0452,"Emergency room, beyond EMTALA screening",Emergency/Imaging
+0453,Reserved emergency room,Emergency/Imaging
+0454,Reserved emergency room,Emergency/Imaging
+0455,Reserved emergency room,Emergency/Imaging
+0456,"Emergency room, urgent care",Emergency/Imaging
+0457,Reserved emergency room,Emergency/Imaging
+0458,Reserved emergency room,Emergency/Imaging
+0459,"Emergency room, ",Emergency/Imaging
+0460,"Pulmonary function, general",Emergency/Imaging
+0461,Reserved pulmonary function,Emergency/Imaging
+0462,Reserved pulmonary function,Emergency/Imaging
+0463,Reserved pulmonary function,Emergency/Imaging
+0464,Reserved pulmonary function,Emergency/Imaging
+0465,Reserved pulmonary function,Emergency/Imaging
+0466,Reserved pulmonary function,Emergency/Imaging
+0467,Reserved pulmonary function,Emergency/Imaging
+0468,Reserved pulmonary function,Emergency/Imaging
+0469,"Pulmonary function, ",Emergency/Imaging
+0470,"Audiology, general",Emergency/Imaging
+0471,"Audiology, diagnostic",Emergency/Imaging
+0472,"Audiology, treatment",Emergency/Imaging
+0473,Reserved audiology,Emergency/Imaging
+0474,Reserved audiology,Emergency/Imaging
+0475,Reserved audiology,Emergency/Imaging
+0476,Reserved audiology,Emergency/Imaging
+0477,Reserved audiology,Emergency/Imaging
+0478,Reserved audiology,Emergency/Imaging
+0479,"Audiology, ",Emergency/Imaging
+0480,"Cardiology, general",Emergency/Imaging
+0481,"Cardiology, cardiac catheterization laboratory",Emergency/Imaging
+0482,"Cardiology, stress test",Emergency/Imaging
+0483,"Cardiology, echocardiology",Emergency/Imaging
+0484,Reserved cardiology,Emergency/Imaging
+0485,Reserved cardiology,Emergency/Imaging
+0486,Reserved cardiology,Emergency/Imaging
+0487,Reserved cardiology,Emergency/Imaging
+0488,Reserved cardiology,Emergency/Imaging
+0489,"Cardiology, ",Emergency/Imaging
+0490,Ambulatory surgery,Emergency/Imaging
+0499,", ambulatory surgery",Emergency/Imaging
+0500,Outpatient services,Therapies
+0510,"Clinic, ",Therapies
+0511,"Clinic, chronic pain center",Therapies
+0512,"Clinic, dental",Therapies
+0513,"Clinic, psychiatric",Therapies
+0514,"Clinic, obstetrics/gynecology (OB/GYN)",Therapies
+0515,"Clinic, pediatric",Therapies
+0516,"Clinic, urgent care",Therapies
+0517,"Clinic, family practice",Therapies
+0518,Reserved clinic,Therapies
+0519,"Clinic, ",Therapies
+0521,Rural clinic,Therapies
+0526,Urgent care clinic,Therapies
+0529,Other,Therapies
+0530,"Osteopathic services, general",Therapies
+0531,"Osteopathic services, therapy",Therapies
+0532,Reserved osteopathic services,Therapies
+0533,Reserved osteopathic services,Therapies
+0534,Reserved osteopathic services,Therapies
+0535,Reserved osteopathic services,Therapies
+0536,Reserved osteopathic services,Therapies
+0537,Reserved osteopathic services,Therapies
+0538,Reserved osteopathic services,Therapies
+0539,"Osteopathic services, ",Therapies
+0540,"Ambulance, general",Therapies
+0541,"Ambulance, supplies",Therapies
+0542,"Ambulance, medical transport",Therapies
+0543,"Ambulance, heart mobile",Therapies
+0544,"Ambulance, oxygen",Therapies
+0545,"Ambulance, air",Therapies
+0546,"Ambulance, neonatal services",Therapies
+0547,"Ambulance, pharmacy",Therapies
+0548,"Ambulance, electrocardiogram (EKG) transmission",Therapies
+0549,"Ambulance, ",Therapies
+0550,Skilled nursing,Therapies
+0551,"Skilled nursing, visit",Therapies
+0561,"Home health medical, social services, general",Therapies
+0571,Aide/home health visit,Therapies
+0601,"Home health, oxygen, general",Supplies
+0610,"Magnetic resonance technology, general",Supplies
+0611,"Magnetic resonance technology, brain/brain stem",Supplies
+0612,"Magnetic resonance technology, spinal cord/spine",Supplies
+0613,Magnetic resonance technology reserved,Supplies
+0614,"Magnetic resonance technology,  magnetic resonance imaging (MRI)",Supplies
+0615,"Magnetic resonance technology, head and neck",Supplies
+0616,"Magnetic resonance technology, lower extremities",Supplies
+0617,Magnetic resonance technology reserved,Supplies
+0618,"Magnetic resonance technology, ",Supplies
+0619,"Magnetic resonance technology, ",Supplies
+0621,"Medical surgical supplies incidentals, radiology",Supplies
+0622,Medical surgical supplies incidental to  diagnostic services,Supplies
+0624,U.S. Food and Drug Administration (FDA) investigational devices,Supplies
+0631,"Drug, single",Supplies
+0632,"Drug, multi",Supplies
+0634,"Pharmacy, extension of 025X erythropoietin (EPO) less than 10,000 units",Supplies
+0635,"Pharmacy extension of 025X erythropoietin (EPO) 10,000 or more units",Supplies
+0636,Pharmacy 025x extension drugs requiring detailed coding,Supplies
+0650,Hospice,Supplies
+0651,"Hospice, routine home care",Supplies
+0652,"Hospice, continuous home care",Supplies
+0656,"Hospice, general inpatient care (non-respite)",Supplies
+0722,"Labor room delivery, delivery room",Other Ancillary
+0723,"Labor room delivery, circumcision",Other Ancillary
+0724,Labor room delivery birthing center,Other Ancillary
+0729,"Labor room delivery, ",Other Ancillary
+0730,"Electrocardiogram (EKG), electroencephalogram (EEG)",Other Ancillary
+0731,"Electrocardiogram (EKG), electroencephalogram (EEG), Holter monitor",Other Ancillary
+0732,Telemetry,Other Ancillary
+0739,"Electrocardiogram (EKG), electroencephalogram (EEG), ",Other Ancillary
+0740,"Electroencephalogram (EEG), general",Other Ancillary
+0741,Reserved electroencephalogram (EEG),Other Ancillary
+0742,Reserved electroencephalogram (EEG),Other Ancillary
+0743,Reserved electroencephalogram (EEG),Other Ancillary
+0744,Reserved electroencephalogram (EEG),Other Ancillary
+0745,Reserved electroencephalogram (EEG),Other Ancillary
+0746,Reserved electroencephalogram (EEG),Other Ancillary
+0747,Reserved electroencephalogram (EEG),Other Ancillary
+0748,Reserved electroencephalogram (EEG),Other Ancillary
+0749,Reserved electroencephalogram (EEG),Other Ancillary
+0750,Gastrointestinal (GI) services general,Other Ancillary
+0751,Reserved gastrointestinal (GI) services,Other Ancillary
+0752,Reserved gastrointestinal (GI) services,Other Ancillary
+0753,Reserved gastrointestinal (GI) services,Other Ancillary
+0754,Reserved gastrointestinal (GI) services,Other Ancillary
+0755,Reserved gastrointestinal (GI) services,Other Ancillary
+0756,Reserved gastrointestinal (GI) services,Other Ancillary
+0757,Reserved gastrointestinal (GI) services,Other Ancillary
+0758,Reserved gastrointestinal (GI) services,Other Ancillary
+0759,Reserved gastrointestinal (GI) services,Other Ancillary
+0760,"Specialty room, general",Other Ancillary
+0761,"Specialty room, treatment room",Other Ancillary
+0769,"Specialty room,  rooms",Other Ancillary
+0770,"Preventive care services, general",Other Ancillary
+0771,"Preventive care services, vaccine administration",Other Ancillary
+0772,Reserved preventive care services,Other Ancillary
+0773,Reserved preventive care services,Other Ancillary
+0774,Reserved preventive care services,Other Ancillary
+0775,Reserved preventive care services,Other Ancillary
+0776,Reserved preventive care services,Other Ancillary
+0777,Reserved preventive care services,Other Ancillary
+0778,Reserved preventive care services,Other Ancillary
+0779,Reserved preventive care services,Other Ancillary
+0780,"Telemedicine, general",Other Ancillary
+0781,Reserved telemedicine,Other Ancillary
+0782,Reserved telemedicine,Other Ancillary
+0783,Reserved telemedicine,Other Ancillary
+0784,Reserved telemedicine,Other Ancillary
+0785,Reserved telemedicine,Other Ancillary
+0786,Reserved telemedicine,Other Ancillary
+0787,Reserved telemedicine,Other Ancillary
+0788,Reserved telemedicine,Other Ancillary
+0789,Reserved telemedicine,Other Ancillary
+0790,"Extra-corporeal shock wave therapy, general",Other Ancillary
+0791,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0792,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0793,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0794,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0795,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0796,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0797,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0798,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0799,Reserved extra-corporeal shock wave therapy,Other Ancillary
+0811,"Acquisition of body components, living donor",Dialysis/Blood
+0812,"Acquisition of body components, cadaver donor",Dialysis/Blood
+0813,"Acquisition of body components, unknown donor",Dialysis/Blood
+0814,"Acquisition of body components unsuccessful organ search, donor bank charges",Dialysis/Blood
+0819,", donor",Dialysis/Blood
+0820,"Hemodialysis, outpatient or home general",Dialysis/Blood
+0821,"Hemodialysis, composite or  rate",Dialysis/Blood
+0829,"Hemodialysis, ",Dialysis/Blood
+0831,"Peritoneal dialysis, outpatient or home composite or  rate",Dialysis/Blood
+0851,"Continuous cycling peritoneal dialysis, outpatient or home composite or  rate",Dialysis/Blood
+0880,"Dialysis, miscellaneous",Dialysis/Blood
+0900,"Behavioral health treatment services, general",Clinic
+0901,"Behavioral health treatment services, electroshock",Clinic
+0902,"Behavioral health treatment services, milieu therapy",Clinic
+0903,"Behavioral health treatment services, play therapy",Clinic
+0904,"Behavioral health treatment services, activity Therapy",Clinic
+0905,"Behavioral health treatment services, intensive outpatient psychiatric",Clinic
+0906,"Behavioral health treatment services, intensive outpatient chemical dependency",Clinic
+0907,"Behavioral health treatment services, community behavioral health program",Clinic
+0908,Reserved behavioral health treatment services,Clinic
+0909,Reserved behavioral health treatment services,Clinic
+0910,"Reserved behavioral health treatment services, 090X extension",Clinic
+0911,"Behavioral health treatment services, 090X extension: rehabilitation",Clinic
+0912,"Behavioral health treatment services, 090X extension: partial hospitalization, less intensive",Clinic
+0913,"Behavioral health treatment services, 090X extension: partial hospitalization, intensive",Clinic
+0914,"Behavioral health treatment services, 090X extension: individual therapy",Clinic
+0915,"Behavioral health treatment, services 090X extension: group therapy",Clinic
+0916,"Behavioral health treatment, services 090X extension: family therapy",Clinic
+0917,"Behavioral health treatment, services 090X extension: bio feedback",Clinic
+0918,"Behavioral health treatment, services 090X extension: testing",Clinic
+0919,"Behavioral health treatment, services 090X extension: ",Clinic
+0920," diagnostic services, general",Clinic
+0921," diagnostic services, peripheral vascular laboratory",Clinic
+0922," diagnostic services, electromyelgram",Clinic
+0923," diagnostic services, pap smear",Clinic
+0924," diagnostic services, allergy test",Clinic
+0925," diagnostic services, pregnancy test",Clinic
+0926,"Reserved , diagnostic services",Clinic
+0927,"Reserved , diagnostic services",Clinic
+0928,"Reserved , diagnostic services",Clinic
+0929," diagnostic services, ",Clinic
+0940," therapeutic services, general",Clinic
+0941," therapeutic services, recreational therapy",Clinic
+0942,"Education, training",Clinic
+0943,Cardiac rehabilitation,Clinic
+0944," therapeutic services, drug rehabilitation",Clinic
+0945," therapeutic services, alcohol rehabilitation",Clinic
+0946," therapeutic services, complex medical equipment – routine",Clinic
+0947," therapeutic services, complex medical equipment, ancillary",Clinic
+0948,Pulmonary rehabilitation,Clinic
+0949," therapeutic services, ",Clinic
+0950,"Reserved  therapeutic services, 094X extension:",Clinic
+0951," therapeutic services, 094X extension: athletic training",Clinic
+0952," therapeutic services, 094X extension: kinesiapy",Clinic
+0953,"Reserved  therapeutic services, extension of 094X",Clinic
+0954,"Reserved  therapeutic services, extension of 094X",Clinic
+0955,"Reserved  therapeutic services, extension of 094X",Clinic
+0956,"Reserved  therapeutic services, extension of 094X",Clinic
+0957,"Reserved , therapeutic services, extension of 094X",Clinic
+0958,"Reserved , therapeutic services, extension of 094X",Clinic
+0959,"Reserved , therapeutic services, extension of 094X",Clinic
+0960,Professional fee,Clinic
+0961,"Professional fee, psychology",Clinic
+0962,"Professional fee, eye",Clinic
+0963,"Professional fee, anesthesiologist Medical Doctor",Clinic
+0964,"Professional fee, anesthesiologist, certified registered nurse anesthetist (CRNA)",Clinic
+0969,", professional fee",Clinic
+0971,"Professional fee, laboratory",Clinic
+0972,"Professional fee, radiology, diagnostic",Clinic
+0975,"Professional fee, operating room",Clinic
+0981,"Professional fee, emergency room",Clinic
+0982,"Professional fee, outpatient",Clinic
+0983,"Professional fee, clinic",Clinic
+0984,"Professional fee, social services",Clinic
+0985,"Professional fee, electrocardiogram (EKG)",Clinic
+0986,"Professional fee, electroencephalography (EEG)",Clinic
+0987,"Professional fee, house visit",Clinic
+0988,"Professional fee, consultation",Clinic

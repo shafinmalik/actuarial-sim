@@ -5,10 +5,16 @@ from faker import Faker
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+
+# ---------------------- RANDOMNESS TOGGLE ----------------------
+USE_FIXED_SEED = False  # Set to True for reproducible results
+
 # ---------------------- INITIAL SETUP ----------------------
 fake = Faker()
-np.random.seed(42)
-random.seed(42)
+if USE_FIXED_SEED:
+    np.random.seed(42)
+    random.seed(42)
+# If False, system RNG is used (non-deterministic)
 
 # ---------------------- CONFIGURATION ----------------------
 
@@ -17,7 +23,7 @@ HP_IDS = ['HP001', 'HP002', 'HP003']
 PLAN_TYPES = ['HMO', 'PPO', 'SNP']
 
 COV_START = pd.to_datetime("2022-01-01")
-COV_END = pd.to_datetime("2024-12-01")
+COV_END = pd.to_datetime("2025-12-01")
 
 MIN_MONTHS = 1
 MAX_MONTHS = 36
@@ -63,13 +69,21 @@ if MAX_MONTHS > total_months_available:
 
 def get_random_coverage_months(cov_start, cov_end, min_months, max_months):
     total_months_available = (cov_end.to_period("M") - cov_start.to_period("M")).n + 1
-    adjusted_max = min(max_months, total_months_available)
-    if adjusted_max < min_months:
-        raise ValueError(f"❌ Not enough available months ({total_months_available}) to meet minimum coverage of {min_months} months.")
+    if min_months > total_months_available:
+        raise ValueError(
+            f"❌ Not enough available months ({total_months_available}) to meet minimum coverage of {min_months} months."
+        )
+
+    # Choose start month uniformly over all starts that can still fit min_months
+    max_start_index = total_months_available - min_months  # inclusive
+    start_idx = random.randint(0, max_start_index)
+
+    # Now choose a duration that fits after the chosen start
+    remaining = total_months_available - start_idx
+    adjusted_max = min(max_months, remaining)
     months_total = random.randint(min_months, adjusted_max)
-    offset_limit = total_months_available - months_total
-    offset = random.randint(0, offset_limit)
-    start_date = cov_start + relativedelta(months=offset)
+
+    start_date = cov_start + relativedelta(months=start_idx)
     return start_date, months_total
 
 def generate_birth_year(dist):
