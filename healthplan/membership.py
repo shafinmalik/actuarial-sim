@@ -18,7 +18,7 @@ if USE_FIXED_SEED:
 
 # ---------------------- CONFIGURATION ----------------------
 
-NUM_MEMBERS = 2500
+NUM_MEMBERS = 5000
 HP_IDS = ['HP001', 'HP002', 'HP003']
 PLAN_TYPES = ['HMO', 'PPO', 'SNP']
 
@@ -32,7 +32,7 @@ NOISE_LEVEL = 0.2                # Controls randomness of premium
 RISK_NOISE_STD = 0.15            # Noise for risk score
 PREMIUM_MULTIPLIER = 0.4         # Premium increases per unit risk
 
-PREMIUM_SCALE = 4.3   # multiply computed premium by this factor; tune to target LR
+PREMIUM_SCALE = 3.8   # multiply computed premium by this factor; tune to target LR
 
 # Prevalence of conditions
 condition_probs = {
