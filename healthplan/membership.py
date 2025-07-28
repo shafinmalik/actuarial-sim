@@ -18,7 +18,7 @@ if USE_FIXED_SEED:
 
 # ---------------------- CONFIGURATION ----------------------
 
-NUM_MEMBERS = 500
+NUM_MEMBERS = 2500
 HP_IDS = ['HP001', 'HP002', 'HP003']
 PLAN_TYPES = ['HMO', 'PPO', 'SNP']
 
@@ -31,6 +31,8 @@ AGE_DISTRIBUTION = 'skewed_old'  # Options: 'uniform', 'skewed_young', 'skewed_o
 NOISE_LEVEL = 0.2                # Controls randomness of premium
 RISK_NOISE_STD = 0.15            # Noise for risk score
 PREMIUM_MULTIPLIER = 0.4         # Premium increases per unit risk
+
+PREMIUM_SCALE = 4.3   # multiply computed premium by this factor; tune to target LR
 
 # Prevalence of conditions
 condition_probs = {
@@ -167,7 +169,8 @@ def generate_member_months(num_members):
             flags_snapshot = has_flags.copy()
             risk_score = calculate_risk_score(age, ckd_stage, esrd_flag, flags_snapshot)
             base = {'HMO': 600, 'PPO': 750, 'SNP': 850}[plan_type]
-            premium = round(base * (1 + risk_score * PREMIUM_MULTIPLIER) + np.random.normal(0, NOISE_LEVEL * 50), 2)
+            premium = round(
+                PREMIUM_SCALE * base * (1 + risk_score * PREMIUM_MULTIPLIER) + np.random.normal(0, NOISE_LEVEL * 50), 2)
 
             for m in month_list:
                 age_m = relativedelta(m, birth_date).years

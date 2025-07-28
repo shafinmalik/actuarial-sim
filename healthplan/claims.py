@@ -3,8 +3,11 @@ import numpy as np
 import random
 import uuid
 from datetime import timedelta
+from tqdm.auto import tqdm
+import time
 
 # ---------------------- CONFIG ----------------------
+SHOW_PROGRESS = True
 USE_FIXED_SEED = False  # set True for reproducibility
 if USE_FIXED_SEED:
     random.seed(42)
@@ -16,6 +19,11 @@ CATASTROPHIC_MULT = 15.0
 
 # Rx co-occurs with a same-month medical claim probability boost
 RX_CO_OCCUR_P = 0.35
+
+# ----------- TREND CONFIG -----------
+TREND_ANNUAL = 0.025     # +2.5% per year; can be negative
+TREND_NOISE_STD = 0.01   # per-claim noise around the trend
+TREND_BASE_YEAR = None   # auto: earliest year in member_months
 
 # ---------------------- LOAD SOURCE TABLES ----------------------
 
@@ -220,6 +228,29 @@ def sample_paid_lag_days(category: str) -> int:
         return int(np.clip(np.random.gamma(2.5, 20.0), 25, 120))
     return int(np.clip(np.random.gamma(2.0, 12.0), 7, 90))
 
+# ---------------------- TREND HELPERS ----------------------
+
+def set_trend_base_year_from_mm(mm: pd.DataFrame):
+    """Set TREND_BASE_YEAR to the earliest COV_Month year in member_months."""
+    global TREND_BASE_YEAR
+    TREND_BASE_YEAR = int(mm["COV_Month"].dt.year.min())
+
+def trend_factor_for_date(dt: pd.Timestamp) -> float:
+    """
+    Compound trend from TREND_BASE_YEAR to the date 'dt' with small zero-mean noise.
+    Works with negative TREND_ANNUAL too.
+    """
+    assert TREND_BASE_YEAR is not None, "TREND_BASE_YEAR must be set before calling trend_factor_for_date()."
+    # fractional years since base
+    years = (dt.year - TREND_BASE_YEAR) + ((dt.dayofyear - 1) / 365.0)
+    base_factor = (1.0 + TREND_ANNUAL) ** years
+
+    # noise centered at 1.0; magnitude scales gently with |years|
+    sigma = TREND_NOISE_STD * max(1.0, abs(years))
+    noise = 1.0 + np.random.normal(0.0, sigma)
+    noise = max(0.7, noise)  # conservative floor
+    return base_factor * noise
+
 # ---------------------- CODE SELECTION ----------------------
 
 def sample_pos(pos_df: pd.DataFrame, category: str) -> str:
@@ -340,6 +371,8 @@ def build_claim_lines(row: pd.Series, category: str, bt_df: pd.DataFrame, pos_df
     los_days = (end_dt - start_dt).days
     total_allowed = sample_claim_amount(row, category, los_days)
 
+    total_allowed *= trend_factor_for_date(start_dt)
+
     # split across 1..MAX_LINES_PER_CLAIM (geometric-like)
     # P(n lines) ~ (0.65, 0.22, 0.09, 0.03, 0.01)
     choices = [1, 2, 3, 4, 5]
@@ -434,11 +467,23 @@ def generate_claims_for_month(row: pd.Series, bt_df, pos_df, rev_df, proc_df, ic
 
 def main():
     mm, bt, pos, rev, proc, icd = load_tables()
+    set_trend_base_year_from_mm(mm)
+    print(f"ℹ️ Trend base year set to {TREND_BASE_YEAR} (annual={TREND_ANNUAL:.3%}, noise_std={TREND_NOISE_STD:.2%})")
 
     # We will only emit claims for member_ids present in member_months
     all_lines: list[dict] = []
-    for _, row in mm.iterrows():
+
+    # Convert to dicts for faster iteration and clean tqdm display
+    rows = mm.to_dict("records")
+
+    start_time = time.time()
+    iterable = tqdm(rows, total=len(rows), desc="Generating claims", unit="mm") if SHOW_PROGRESS else rows
+
+    for row in iterable:
         all_lines.extend(generate_claims_for_month(row, bt, pos, rev, proc, icd))
+
+    elapsed = time.time() - start_time
+    print(f"⏱️ Generation finished in {elapsed:,.1f}s")
 
     df_claims = pd.DataFrame(all_lines)
     # Order columns
