@@ -26,6 +26,10 @@ ALLOW_NEGATIVE_SUBSEQUENT = True
 NEG_SUBSEQ_MIN_FACTOR = -0.25  # allow line i>0 paid as low as -25% of its allowed
 FIRST_LINE_MIN_PAID = 0.0      # keep line 1 paid non-negative
 
+# ---- Paid-through capping ----
+CAP_PAID_AT_COV_END = True   # set False to allow payments after coverage window
+PAID_CAP_DATE = None         # will be set from member_months
+
 # Categories
 CATEGORIES = ["Professional", "Outpatient", "Inpatient", "ER", "SNF", "Rx", "Other"]
 
@@ -292,20 +296,35 @@ def sample_service_dates(cov_month: pd.Timestamp, category: str):
     end = start + pd.to_timedelta(los, unit="D")
     return start, end
 
+# ---------------------- PAID-DATE LAG ----------------------
+# Exponential-tail model with category-specific shape.
+#  • min_lag  – hard floor (days)
+#  • scale    – mean of the exponential tail beyond the floor
+# The PDF decays smoothly, so lags of 6-, 12-, even 24-months are
+# possible but increasingly rare.  Rx keeps lag = 0.
+
+# ---------------------- PAID-DATE LAG (heavy-tailed) ----------------------
+# Gamma(shape<1) → much fatter tail than exponential; lag can be years.
+#   lag_days = min_lag + Gamma(k, θ)
+# For Γ(k<1) the density near zero is high, but the tail declines ~ x^(k-1) e^(-x/θ),
+# so a 24-month (≈730-day) lag is rare yet plausible.
+
+PAID_LAG_PARAMS = {
+    "Professional": dict(min_lag=0,  k=0.60, theta=50),
+    "Outpatient":   dict(min_lag=5,  k=0.65, theta=60),
+    "ER":           dict(min_lag=0,  k=0.60, theta=55),
+    "Inpatient":    dict(min_lag=10, k=0.70, theta=90),
+    "SNF":          dict(min_lag=30, k=0.80, theta=50),
+    "Rx":           dict(min_lag=0,  k=0.0, theta=0),
+    "Other":        dict(min_lag=7,  k=0.60, theta=55),
+}
+
 def sample_paid_lag_days(category: str) -> int:
     if category == "Rx":
         return 0
-    if category == "Professional":
-        return int(np.clip(rng.gamma(2.0, 8.0), 5, 60))
-    if category == "Outpatient":
-        return int(np.clip(rng.gamma(2.2, 10.0), 10, 75))
-    if category == "ER":
-        return int(np.clip(rng.gamma(2.0, 9.0), 7, 60))
-    if category == "Inpatient":
-        return int(np.clip(rng.gamma(2.5, 18.0), 20, 120))
-    if category == "SNF":
-        return int(np.clip(rng.gamma(2.5, 20.0), 25, 120))
-    return int(np.clip(rng.gamma(2.0, 12.0), 7, 90))
+    p = PAID_LAG_PARAMS.get(category, PAID_LAG_PARAMS["Other"])
+    lag = p["min_lag"] + rng.gamma(shape=p["k"], scale=p["theta"])
+    return int(round(lag))
 
 # ============================ TREND HELPERS ============================
 
@@ -408,61 +427,55 @@ def pick_icd(row, category, pools):
 
 # ============================ CLAIM BUILD (COLUMNAR) ============================
 
-def build_claim_lines(row, category, pools, cols):
+def sample_num_lines() -> int:
+    return int(rng.geometric(p=0.30))
+
+def build_claim_lines(row, category, pools, cols, paid_cap_date):
     start_dt, end_dt = sample_service_dates(row["COV_Month"], category)
     los_days = (end_dt - start_dt).days
     total_allowed = sample_claim_amount(row, category, los_days)
-    # Apply trend
     total_allowed *= trend_factor_for_date(start_dt)
 
-    # number of lines
-    choices = np.array([1, 2, 3, 4, 5])
-    probs   = np.array([0.65, 0.22, 0.09, 0.03, 0.01])
-    n_lines = int(rng.choice(choices, p=probs))
-
+    n_lines = sample_num_lines()
     alpha = np.ones(n_lines, dtype=float)
     alpha[0] = PRIMARY_LINE_WEIGHT
     parts = rng.dirichlet(alpha) * total_allowed
+
     claim_id = str(uuid.uuid4())
     base_lag = sample_paid_lag_days(category)
-
-    # one diagnosis per claim
     diag_code = pick_icd(row, category, pools)
 
-    paid_dates = []
-    allowed_lines = []
-    paid_lines = []
+    paid_lines = []  # keep track for non‑negative total enforcement later
 
     for i in range(n_lines):
+        # 1️⃣  Compute paid_date early so we can enforce cap
+        lag_days = int(max(0, base_lag + rng.normal(0, 4)))
+        paid_date = start_dt + timedelta(days=lag_days)
+        if CAP_PAID_AT_COV_END and paid_date.date() > paid_cap_date:
+            continue  # skip this line entirely (paid after allowed window)
+
+        # 2️⃣  Monetary amounts
         allowed = float(np.round(parts[i] * rng.uniform(0.9, 1.1), 2))
         paid_core = allowed * rng.uniform(0.82, 0.98)
         adj = rng.normal(0.0, allowed * 0.02)
         paid = float(np.round(paid_core + adj, 2))
 
-        # Clamp paid by line index rules:
+        # 3️⃣  Clamp per rules
         if i == 0:
-            # first line should not be negative
-            if paid < FIRST_LINE_MIN_PAID:
-                paid = FIRST_LINE_MIN_PAID
+            paid = max(paid, FIRST_LINE_MIN_PAID)
         else:
-            # subsequent lines may go modestly negative if allowed
             if ALLOW_NEGATIVE_SUBSEQUENT:
-                min_paid = NEG_SUBSEQ_MIN_FACTOR * allowed
-                if paid < min_paid:
-                    paid = float(np.round(min_paid, 2))
+                paid = max(paid, NEG_SUBSEQ_MIN_FACTOR * allowed)
             else:
-                if paid < 0.0:
-                    paid = 0.0
+                paid = max(paid, 0.0)
 
+        # 4️⃣  Codes
         pos_code = pick_pos(category, pools)
-        billtype = pick_billtype(category, pools)
+        bill_type = pick_billtype(category, pools)
         rev_code = pick_rev(category, pools)
-        proc_code= pick_proc(category, pools)
+        proc_code = pick_proc(category, pools)
 
-        lag_days = int(max(0, base_lag + rng.normal(0, 4)))
-        paid_date = start_dt + timedelta(days=lag_days)
-
-        # Append columns
+        # 5️⃣  Append to column lists
         cols["claim_id"].append(claim_id)
         cols["line_number"].append(i + 1)
         cols["member_id"].append(row["member_id"])
@@ -470,7 +483,7 @@ def build_claim_lines(row, category, pools, cols):
         cols["service_start_date"].append(start_dt.date())
         cols["service_end_date"].append(end_dt.date())
         cols["paid_date"].append(paid_date.date())
-        cols["bill_type_code"].append(billtype)
+        cols["bill_type_code"].append(bill_type)
         cols["pos_code"].append(pos_code)
         cols["revenue_code"].append(rev_code)
         cols["procedure_code"].append(proc_code)
@@ -479,14 +492,13 @@ def build_claim_lines(row, category, pools, cols):
         cols["paid_amount"].append(round(paid, 2))
         cols["los_days"].append(los_days)
 
-        paid_dates.append(paid_date)
-        allowed_lines.append(allowed)
         paid_lines.append(paid)
 
-    # ensure claim total non-negative
-    if sum(paid_lines) < 0:
+    # 6️⃣  Enforce claim‑level non‑negative total
+    if paid_lines and sum(paid_lines) < 0:
         diff = -sum(paid_lines) + 0.01
-        cols["paid_amount"][-n_lines] = round(cols["paid_amount"][-n_lines] + diff, 2)
+        cols["paid_amount"][-len(paid_lines)] = round(cols["paid_amount"][-len(paid_lines)] + diff, 2)
+
 
 def generate_claims_for_month(row, pools, cols):
     lam = monthly_lambda(row)
@@ -505,14 +517,21 @@ def generate_claims_for_month(row, pools, cols):
             categories = np.append(categories, "Rx")
 
     for cat in categories:
-        build_claim_lines(row, cat, pools, cols)
+        build_claim_lines(row, cat, pools, cols, PAID_CAP_DATE)
 
 # ============================ MAIN ============================
 
 def main():
     mm, bt, pos, rev, proc, icd = load_tables()
+    # Trend base year
     set_trend_base_year_from_mm(mm)
     print(f"ℹ️ Trend base year set to {TREND_BASE_YEAR} (annual={TREND_ANNUAL:.3%}, noise_std={TREND_NOISE_STD:.2%})")
+    # Paid-through cap date = last day of latest COV_Month
+    global PAID_CAP_DATE
+    latest_cov = mm["COV_Month"].max()            # e.g., 2025-12-01
+    PAID_CAP_DATE = (latest_cov + pd.offsets.MonthEnd(0)).date()  # 2025-12-31
+    print(f"ℹ️  Paid-through cap date set to {PAID_CAP_DATE}")
+    
 
     pools = build_pools(bt, pos, rev, proc, icd)
 
